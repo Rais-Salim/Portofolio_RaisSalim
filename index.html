@@ -1417,34 +1417,13 @@
         list-style-type: disc;
       }
 
-      /* Toast Notification */
-      .toast {
-        position: fixed;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%) translateY(100px);
-        background: var(--bg-card);
-        border: 1px solid var(--primary);
-        color: var(--text-title);
-        padding: 0.9rem 1.8rem;
-        border-radius: var(--radius-full);
-        box-shadow: var(--shadow-glow);
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        font-weight: 600;
-        font-size: 0.9rem;
-        z-index: 3000;
-        transition: var(--transition);
-      }
-
-      .toast.show {
-        transform: translateX(-50%) translateY(0);
-      }
-
       /* ==========================================================================
-           RESPONSIVE BREAKPOINTS
+           RESPONSIVE BREAKPOINTS & MOBILE FIXES
            ========================================================================== */
+      .nav-cta-btn {
+        display: inline-flex;
+      }
+
       @media (max-width: 1024px) {
         .hero-grid,
         .about-grid,
@@ -1470,6 +1449,10 @@
       }
 
       @media (max-width: 768px) {
+        .nav-cta-btn {
+          display: none;
+        }
+
         .nav-menu {
           position: fixed;
           top: 80px;
@@ -1508,6 +1491,58 @@
         .section-title {
           font-size: 2rem;
         }
+
+        .back-to-top {
+          bottom: 1.25rem;
+          right: 1.25rem;
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 1rem;
+        }
+
+        .hero-title {
+          font-size: 2.1rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1rem;
+          max-width: 100%;
+        }
+
+        .section {
+          padding: 4rem 0;
+        }
+
+        .section-title {
+          font-size: 1.75rem;
+        }
+
+        .filter-btn {
+          padding: 0.5rem 1rem;
+          font-size: 0.8rem;
+        }
+
+        .project-card {
+          border-radius: var(--radius-md);
+        }
+
+        .project-content {
+          padding: 1.25rem;
+        }
+
+        .timeline {
+          padding-left: 1.5rem;
+        }
+
+        .timeline-dot {
+          left: -1.5rem;
+        }
       }
     </style>
   </head>
@@ -1534,11 +1569,7 @@
         </nav>
 
         <div style="display: flex; align-items: center; gap: 1rem">
-          <a
-            href="#contact"
-            class="btn btn-primary"
-            style="display: none; display: md-inline-flex"
-          >
+          <a href="#contact" class="btn btn-primary nav-cta-btn">
             <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
           </a>
           <button
@@ -1678,8 +1709,8 @@
               Saya adalah mahasiswa Semester 5 Program Studi
               <strong>Manajemen Informatika di Politeknik Astra</strong> dengan
               spesialisasi pada <em>Software Development</em>. Memiliki
-              pengalaman dalam merancang, mengembangkan, dan
-              memelihara aplikasi desktop, web, hingga mobile.
+              pengalaman dalam merancang, mengembangkan, dan memelihara aplikasi
+              desktop, web, hingga mobile.
             </p>
             <p class="about-text">
               Terbiasa bekerja menggunakan teknologi modern seperti
@@ -2677,15 +2708,6 @@
           <span class="stack-badge">Technology</span>
         </div>
       </div>
-    </div>
-
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-      <i
-        class="fa-solid fa-circle-check"
-        style="color: var(--primary); font-size: 1.2rem"
-      ></i>
-      <span id="toast-text">Pesan berhasil dikirim!</span>
     </div>
 
     <!-- ==========================================================================
